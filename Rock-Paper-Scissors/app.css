@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #d3d3d3;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -35,8 +39,44 @@
   background-image: url("./assets/scissor.jpg");
   background-size: 188px 188px;
 }
+
+.gameResults {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 10px 20px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #006b88;
+}
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 144px;
+  height: 144px;
+  font-size: 2.5em;
+}
+#playerScore {
+  background-image: url("./assets/result1.png");
+  background-size: 144px 144px;
+}
+#computerScore {
+  background-image: url("./assets/result2.png");
+  background-size: 144px 144px;
+}
+#result {
+  text-align: center;
+  padding: 40px 0;
+  overflow: hidden;
+  height: 144px;
+  width: 264px;
+  background-image: url("./assets/text.jpg");
+  background-size: 144px 144px;
+}
+
 #refresh {
-  /* visibility: hidden; */
+  visibility: hidden;
   font-size: 1em;
   font-weight: bold;
   width: 112px;
