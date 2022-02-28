@@ -40,13 +40,21 @@ function playRound(playerSelection) {
 
   if (playerScore == 5 || computerScore == 5) {
     disableChoices();
-    document.getElementById("reset").innerHTML =
-      "Refresh the page in order to play a new game!";
+    document.getElementById("refresh").style.visibility = "visible";
+    // document.getElementById("endGame").innerHTML =
+    //   "Refresh the page in order to play a new game!";
   }
+
   playerPoints.innerHTML = playerScore;
   computerPoints.innerHTML = computerScore;
   document.getElementById("result").innerHTML = result;
 }
+
+document
+  .getElementById("refresh")
+  .addEventListener("click", function newGame() {
+    window.location.reload("Refresh");
+  });
 
 choices.forEach((choice) => {
   choice.addEventListener("click", function () {
