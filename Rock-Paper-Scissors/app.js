@@ -4,7 +4,6 @@ const computerPoints = document.getElementById("computerScore");
 
 let playerScore = 0;
 let computerScore = 0;
-const computerChoice = ["Rock", "Paper", "Scissors"];
 
 playerPoints.innerHTML = playerScore;
 computerPoints.innerHTML = computerScore;
@@ -16,13 +15,15 @@ function disableChoices() {
   });
 }
 
-function computerPlay() {
-  return computerChoice[Math.floor(Math.random() * computerChoice.length)];
-}
-
 function playRound(playerSelection) {
-  computerSelection = computerPlay().toLowerCase();
+  const computerChoice = ["Rock", "Paper", "Scissors"];
+
+  computerSelection =
+    computerChoice[
+      Math.floor(Math.random() * computerChoice.length)
+    ].toLowerCase();
   playerSelection = playerSelection.toLowerCase();
+  console.log(computerSelection);
 
   if (playerSelection == computerSelection) {
     result = "Tie!";
@@ -41,8 +42,6 @@ function playRound(playerSelection) {
   if (playerScore == 5 || computerScore == 5) {
     disableChoices();
     document.getElementById("refresh").style.visibility = "visible";
-    // document.getElementById("endGame").innerHTML =
-    //   "Refresh the page in order to play a new game!";
   }
 
   playerPoints.innerHTML = playerScore;
@@ -59,5 +58,7 @@ document
 choices.forEach((choice) => {
   choice.addEventListener("click", function () {
     playRound(choice.value);
+    document.getElementById("playerChoice").innerHTML = choice.value;
+    document.getElementById("npcChoice").innerHTML = computerSelection;
   });
 });

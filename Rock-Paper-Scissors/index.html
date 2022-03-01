@@ -17,16 +17,23 @@
         <div class="choices">
             <button id="rock" class="choice" value="rock"></button>
             <button id="paper" class="choice" value="paper"></button>
-            <button id="scissor" class="choice" value="scissor"></button>
+            <button id="scissor" class="choice" value="scissors"></button>
         </div>
 
         <div class="gameResults">
-            <span class="score" id="playerScore"></span>
+            <div class="roundResults">
+                <span class="player">Player</span>
+                <span class="score" id="playerScore"></span>
+                <span id="playerChoice"></span>
+            </div>
             <span class="" id="result"></span>
-            <span class="score" id="computerScore"></span>
+            <div class="roundResults">
+                <span class="player">NPC</span>
+                <span class="score" id="computerScore"></span>
+                <span id="npcChoice"></span>
+            </div>
         </div>
         <div>
-            <!-- <h3 id="endGame"></h3> -->
 
         </div>
         <input id="refresh" type="button" value="New game!">

@@ -26,6 +26,11 @@ body {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  transition: ease-in-out 0.1s;
+  border: none;
+}
+.choice:hover {
+  transform: scale(1.05);
 }
 #rock {
   background-image: url("./assets/rock.jpg");
@@ -79,10 +84,42 @@ body {
   visibility: hidden;
   font-size: 1em;
   font-weight: bold;
-  width: 112px;
-  height: 36px;
-  border-color: #888;
-  border-radius: 25%;
-  margin-right: 0 auto;
+  width: 124px;
+  height: 48px;
+  padding: 6px 12px;
+  border: 2px solid #11887b;
+  color: #11887b;
+  border-radius: 25px;
   cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+#refresh:hover {
+  border-color: #fff;
+  background-color: #11887b;
+  color: #fff;
+}
+
+.roundResults {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+.player {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+#playerChoice,
+#npcChoice {
+  font-size: 0.8em;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
