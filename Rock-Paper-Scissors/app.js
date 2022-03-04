@@ -23,7 +23,6 @@ function playRound(playerSelection) {
       Math.floor(Math.random() * computerChoice.length)
     ].toLowerCase();
   playerSelection = playerSelection.toLowerCase();
-  console.log(computerSelection);
 
   if (playerSelection == computerSelection) {
     result = "Tie!";
