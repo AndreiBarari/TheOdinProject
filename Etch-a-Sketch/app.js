@@ -1,5 +1,7 @@
 const container = document.querySelector("#container");
 const reset = document.getElementById("reset");
+const colorPicker = document.querySelector("#colorPicker");
+const title = document.getElementById("title");
 let nrCells = 10;
 
 function generateGrid(size) {
@@ -24,6 +26,7 @@ function randColor() {
 }
 
 function color() {
+  document.getElementById("main").style.boxShadow = `0 0 24px #fff`;
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
@@ -34,11 +37,21 @@ function color() {
 
 color();
 
+/// RAINBOW color title
+function colorTitle() {
+  for (let i = 0; i < title.innerHTML.length; i++) {
+    title.textContent[i].fontcolor("black");
+  }
+}
+colorTitle();
+///
+
 reset.addEventListener("click", () => {
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.style.backgroundColor = "white";
   });
+  color();
 });
 
 const resize = document.getElementById("resize");
@@ -48,7 +61,7 @@ resize.addEventListener("click", () => {
   cells.forEach((cell) => {
     container.removeChild(cell);
   });
-  nrCells = prompt("Enter a new grid size between 4 and 100");
+  nrCells = prompt("Enter a new grid size between 4 and 100. Default is 16*16");
   if (nrCells >= 4 && nrCells <= 100) {
     container.style.gridTemplateColumns = `repeat(${nrCells}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${nrCells}, 1fr)`;
@@ -61,7 +74,22 @@ resize.addEventListener("click", () => {
   }
 });
 
+colorPicker.addEventListener("click", () => {
+  colorPicker.addEventListener("input", () => {
+    document.getElementById(
+      "main"
+    ).style.boxShadow = `0 0 24px ${colorPicker.value}`;
+  });
+  let cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+      cell.style.backgroundColor = colorPicker.value;
+    });
+  });
+});
+
 document.getElementById("blackColor").addEventListener("click", () => {
+  document.getElementById("main").style.boxShadow = `0 0 24px #000`;
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
@@ -71,6 +99,7 @@ document.getElementById("blackColor").addEventListener("click", () => {
 });
 
 document.getElementById("erase").addEventListener("click", () => {
+  document.getElementById("main").style.boxShadow = `0 0 24px #fff`;
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {

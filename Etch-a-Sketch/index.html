@@ -11,21 +11,22 @@
 </head>
 
 <body>
-    <h1>Taste the rainbow!</h1>
+    <h1 id="title">Taste the rainbow!</h1>
 
-    <div class="main">
+    <div class="main" id="main">
         <div class="rightMenu">
-
-            <button id="blackColor">Black</button>
-
             <button id="rainbow" onclick="color()">Rainbow</button>
+            <button id="blackColor">Black</button>
+            <button id="erase">Eraser</button>
+
         </div>
         <div class="container" id="container">
         </div>
         <div class="leftMenu">
             <button id="resize">Resize</button>
-            <button id="erase">Eraser</button>
+
             <button id="reset">Clear</button>
+            <input id="colorPicker" type="color">
         </div>
     </div>
 
