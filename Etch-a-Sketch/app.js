@@ -26,7 +26,7 @@ function randColor() {
 }
 
 function color() {
-  document.getElementById("main").style.boxShadow = `0 0 24px #fff`;
+  document.getElementById("main").style.boxShadow = `0 0 24px ${randColor()}`;
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
@@ -39,8 +39,9 @@ color();
 
 /// RAINBOW color title
 function colorTitle() {
-  for (let i = 0; i < title.innerHTML.length; i++) {
-    title.textContent[i].fontcolor("black");
+  let spans = document.getElementsByClassName("titleSpan");
+  for (let span of spans) {
+    span.style.color = randColor();
   }
 }
 colorTitle();
@@ -52,6 +53,7 @@ reset.addEventListener("click", () => {
     cell.style.backgroundColor = "white";
   });
   color();
+  colorTitle();
 });
 
 const resize = document.getElementById("resize");
@@ -67,10 +69,12 @@ resize.addEventListener("click", () => {
     container.style.gridTemplateRows = `repeat(${nrCells}, 1fr)`;
     generateGrid(nrCells);
     color();
+    colorTitle();
   } else {
     alert("Please enter a valid number");
     generateGrid(16);
     color();
+    colorTitle();
   }
 });
 
