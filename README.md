@@ -1,4 +1,4 @@
 # TheOdinProject
 
-All my projects completed on https://www.theodinproject.com/
+All my completed projects from https://www.theodinproject.com/
 "Hello Odin"
